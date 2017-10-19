@@ -5,15 +5,15 @@
       <form>
         <label for="login">
           Введите логин</label>
-        <input id="login" type="text" v-model="login" placeholder="Введите логин"><br>
+        <input id="login" type="text" name="login" v-model="login" placeholder="Введите логин"><br>
         <label for="password">Придумайте пароль</label>
-        <input id="password" type="password" v-model="password" placeholder="Придумайте пароль"><br>
+        <input id="password" type="password" name="password" v-model="password" placeholder="Придумайте пароль"><br>
         <label for="repeatPassword">Повторите пароль</label>
         <input id="repeatPassword" type="password" v-model="repeatPassword" placeholder="Повторите пароль"><br>
         <label for="phone">Введите телефон</label>
-        <input id="phone" type="text" v-model="phone" placeholder="Введите телефон"><br>
+        <input id="phone" type="text" name="phone" v-model="phone" placeholder="Введите телефон"><br>
         <label for="email">Введите Ваш e-mail</label>
-        <input id="email" type="email" v-model="email" placeholder="Введите Ваш e-mail"><br>
+        <input id="email" type="email" name="email" v-model="email" placeholder="Введите Ваш e-mail"><br>
 
         <button @click.prevent="sendingData()" class="btnRegistration">Регистрация</button>
         <button class="btnBack">У меня есть аккаунт</button>
@@ -52,11 +52,11 @@ export default {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: {
+        body: JSON.stringify({
           email: this.email,
           password: this.password,
-          phon: this.phone
-        }
+          phone: this.phone
+        })
       }).then((data) => console.log(data))
     }
   }
