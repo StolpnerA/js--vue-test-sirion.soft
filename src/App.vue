@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <app-registration></app-registration>
+    <header>
+      <nav>
+        <router-link to="/authorization">Авторизация</router-link>
+        <router-link to="/registration">Регистрация</router-link>
+      </nav>
+    </header>
+    <router-view></router-view>
   </div>
 </template>
 

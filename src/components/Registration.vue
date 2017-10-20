@@ -1,5 +1,5 @@
 <template>
-  <div id="registration">
+  <div class="singLogIn" id="registration">
     <div class="leftForm">
       <div class="logo"></div>
       <form>
@@ -64,4 +64,4 @@ export default {
 }
 </script>
 
-<style src="../style/registrationForm.css"></style>
+<style src="../style/singLogIn.css"></style>
