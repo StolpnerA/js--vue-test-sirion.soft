@@ -50,7 +50,7 @@ export default {
         console.log(data);
         localStorage.setItem('jwt', data.token);
       })
-        .then(() => this.$router.replace('/registration'))
+        .then(() => this.$router.replace('/cabinet'))
     }
   }
 
