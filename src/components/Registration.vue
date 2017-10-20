@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     sendingData: function() {
-      fetch('http://test-task-api.insirion.ru/user/authorization', {
+      fetch(' https://test-task-api.insirion.ru/user/registration', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
