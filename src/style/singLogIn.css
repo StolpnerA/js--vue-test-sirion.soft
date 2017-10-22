@@ -1,6 +1,6 @@
 .singLogIn {
   width: 860px;
-  margin: 0 auto;
+  margin: 50px auto;
   border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
@@ -11,12 +11,16 @@
 
 .leftForm {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.logo {
+  margin: 30px 0 0 30px;
 }
 
 form {
-  padding-top: 85px;
   margin: 0 auto;
-  margin-bottom: 85px;
   max-width: 260px;
 }
 
@@ -44,6 +48,7 @@ form input:focus {
 
 button {
   border: none;
+  cursor: pointer;
 }
 
 button:focus {
@@ -73,7 +78,12 @@ form button.btnBack {
   color: #3c3c3c;
 }
 
+.errorInfo {
+  color: #df5664;
+}
+
 .leftForm div.phone {
+  padding-bottom: 20px;
   width: 214px;
   margin: 0 auto;
   font-size: 10px;

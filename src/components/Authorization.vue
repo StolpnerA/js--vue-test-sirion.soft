@@ -1,7 +1,7 @@
 <template>
   <div class="singLogIn" id="authorization">
     <div class="leftForm">
-      <div class="logo"></div>
+      <div class="logo"><img src="./../assets/logo.png" alt="azur"></div>
       <form>
         <label for="email">Логин или e-mail</label>
         <input id="email" type="input" name="email" v-model="email" placeholder="Введите Ваш логин или e-mail">
@@ -9,7 +9,8 @@
         <input id="password" type="password" name="password" v-model="password" placeholder="Пароль"><br>
 
         <button @click.prevent="sendingData()" class="btnRegistration">Войти</button>
-        <button class="btnBack">Зарегистрироваться</button>
+        <button @click.prevent="moveToRegistration()" class="btnBack">Зарегистрироваться</button>
+        <span class="errorInfo">{{errorInfo}}</span>
       </form>
       <div class="phone">
         Единый номер Azur:
@@ -32,7 +33,8 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      errorInfo: ''
     }
   },
   methods: {
@@ -46,11 +48,22 @@ export default {
           email: this.email,
           password: this.password
         })
-      }).then((r) => r.json()).then((data) => {
-        //console.log(data);
+      }).then((r) => {
+        if (r.ok) {
+          return r.json()
+        }
+        throw new Error(`Ошибка -- ${r.status} ${r.statusText}`)
+      }).then((data) => {
         localStorage.setItem('jwt', data.token);
       })
         .then(() => this.$router.replace('/cabinet'))
+        .catch((error) => {
+          console.log(error.message);
+          this.errorInfo = `${error.message}`
+        })
+    },
+    moveToRegistration: function() {
+      this.$router.replace('/registration');
     }
   }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="singLogIn" id="registration">
     <div class="leftForm">
-      <div class="logo"></div>
+      <div class="logo"><img src="./../assets/logo.png" alt="azur"></div>
       <form>
         <label for="login">
           Введите логин</label>
@@ -16,7 +16,8 @@
         <input id="email" type="email" name="email" v-model="email" placeholder="Введите Ваш e-mail"><br>
 
         <button @click.prevent="sendingData()" class="btnRegistration">Регистрация</button>
-        <button class="btnBack">У меня есть аккаунт</button>
+        <button @click.prevent="moveToAuthorization()" class="btnBack">У меня есть аккаунт</button>
+        <span class="errorInfo">{{errorInfo}}</span>
       </form>
       <div class="phone">
         Единый номер Azur:
@@ -42,7 +43,8 @@ export default {
       password: '',
       repeatPassword: '',
       phone: '',
-      email: ''
+      email: '',
+      errorInfo: ''
     }
   },
   methods: {
@@ -57,7 +59,20 @@ export default {
           password: this.password,
           phone: this.phone
         })
-      }).then((data) => console.log(data))
+      }).then((response) => {
+        if (response.ok) {
+          console.log(response);
+          this.$router.replace('/authorization');
+        }
+        throw new Error(`Ошибка -- ${response.status} ${response.statusText}`)
+      }).catch(error => {
+        console.log(error.message);
+        this.errorInfo = `${error.message}`
+
+      })
+    },
+    moveToAuthorization: function() {
+      this.$router.replace('/authorization');
     }
   }
 
