@@ -1,0 +1,73 @@
+<template>
+  <div tabindex="0" class="card">
+    <div class="img">
+      <img :src="img" alt=" ">
+    </div>
+    <div class="aboutInsu ">
+      <h3> {{title}} </h3>
+      <p> {{description}} </p>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  },
+  props: ["img", "title", "description"]
+}
+</script>
+
+<style>
+.card {
+  margin-right: 40px;
+  width: 160px;
+  height: 192px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px 0 rgba(89, 159, 246, 0.3);
+}
+
+.card:focus {
+  outline: none;
+  box-shadow: 0 0 20px 0 rgba(89, 159, 246, 0.6);
+}
+
+.card img {
+  width: 100%;
+  height: 95px;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+.card:hover img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.img {
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card h3 {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.card p {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 140px;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: #999999;
+}
+</style>
+

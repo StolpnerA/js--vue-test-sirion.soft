@@ -47,7 +47,7 @@ export default {
           password: this.password
         })
       }).then((r) => r.json()).then((data) => {
-        console.log(data);
+        //console.log(data);
         localStorage.setItem('jwt', data.token);
       })
         .then(() => this.$router.replace('/cabinet'))
