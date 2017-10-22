@@ -14,12 +14,7 @@ export default {
   },
   data() {
     return {
-      arrInsurance: [],
-      objForCards: {
-        img: '',
-        title: '',
-        description: ''
-      }
+      arrInsurance: []
     }
   },
   created() {
@@ -35,16 +30,19 @@ export default {
         headers: {
           'token-sirion': localStorage.getItem('jwt')
         }
-      }).then(r => r.json()).then((data) => {
+      }).then(r => {
+        if (r.status === 401) {
+          throw new Error(`Ошибка -- ${r.status} ( Не авторизован )`)
+        } else if (r.status === 200) {
+          return r.json();
+        }
+      }).then((data) => {
         this.arrInsurance = data;
         console.log(this.arrInsurance);
-        this.workWithArr();
+      }).catch(error => {
+        confirm(error);
+        this.$router.replace('/authorization');
       })
-    },
-    workWithArr() {
-      this.objForCards.img = this.arrInsurance[0].img;
-      this.objForCards.title = this.arrInsurance[0].title;
-      this.objForCards.description = this.arrInsurance[0].description;
     }
   }
 
