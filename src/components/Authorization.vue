@@ -1,14 +1,14 @@
 <template>
   <singLogIn>
-    <form>
+    <form @submit.prevent="validateBeforeSubmit">
       <label for="email">Логин или e-mail</label>
-      <input id="email" type="input" name="email" v-model="email" placeholder="Введите Ваш логин или e-mail">
+      <input v-validate="'required|email'" data-vv-delay="250" :class="{'input': true, 'is-danger': errors.has('email') }" id="email" type="text" name="email" v-model="email" placeholder="Введите Ваш логин или e-mail">
       <label for="password">Пароль</label>
-      <input id="password" type="text" name="password" v-model="password" placeholder="Пароль"><br>
+      <input v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('password') }" id="password" type="text" name="password" v-model="password" placeholder="Пароль"><br>
 
-      <button @click.prevent="sendingData()" class="btnRegistration">Войти</button>
+      <button class="btnRegistration">Войти</button>
       <button @click.prevent="moveToRegistration()" class="btnBack">Зарегистрироваться</button>
-      <span class="errorInfo">{{errorInfo}}</span>
+      <span class="errorInfo">{{ errors.first('email') || errors.first('password') || errorInfo}}</span>
     </form>
   </singLogIn>
 </template>
@@ -24,6 +24,16 @@ export default {
     }
   },
   methods: {
+    validateBeforeSubmit() {
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          this.sendingData();
+          return;
+        }
+
+        alert('Исправьте ошибки');
+      });
+    },
     sendingData: function() {
       fetch(' https://test-task-api.insirion.ru/user/authorization', {
         method: 'POST',
@@ -40,7 +50,7 @@ export default {
         } else if (r.status === 401) {
           throw new Error(`Ошибка -- Вероятнее всего ввели неверный пароль`)
         }
-        throw new Error(`Ошибка -- ${r.status} ${r.statusText} (Зарегестрируйтесь)`)
+        throw new Error(`Ошибка -- ${r.status} ${r.statusText}`)
       }).then((data) => {
         localStorage.setItem('jwt', data.token);
       })

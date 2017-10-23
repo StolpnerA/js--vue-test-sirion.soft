@@ -79,7 +79,11 @@ form button.btnBack {
 }
 
 .errorInfo {
-  color: #df5664;
+  color: #ff3860;
+}
+
+.input.is-danger {
+  border-bottom-color: #ff3860;
 }
 
 .leftForm div.phone {
