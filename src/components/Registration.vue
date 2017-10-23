@@ -11,7 +11,7 @@
         <label for="repeatPassword">Повторите пароль</label>
         <input id="repeatPassword" type="password" v-model="repeatPassword" placeholder="Повторите пароль"><br>
         <label for="phone">Введите телефон</label>
-        <input id="phone" type="text" name="phone" v-model="phone" placeholder="Введите телефон"><br>
+        <masked-input id="phone" type="text" name="phone" v-model="phone" :mask="['+', '3', '7', '5', ' ', '(', /[2-4]/, /[3,4,5,9]/, ')', ' ', /[1-9]/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/]" :guide="true" placeholderChar="X" placeholder="+375 (XX) XXX-XX-XX"></masked-input> <br>
         <label for="email">Введите Ваш e-mail</label>
         <input id="email" type="email" name="email" v-model="email" placeholder="Введите Ваш e-mail"><br>
 
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'registration',
   data() {
