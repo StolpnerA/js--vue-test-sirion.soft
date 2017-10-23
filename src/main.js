@@ -5,9 +5,11 @@ import App from "./App.vue";
 import Registration from "./components/Registration.vue";
 import Authorization from "./components/Authorization.vue";
 import Cabinet from "./components/Cabinet.vue";
+import SingLogIn from "./components/SingLogIn.vue";
 
 Vue.use(VueRouter);
 Vue.component("masked-input", MaskedInput);
+Vue.component("singLogIn", SingLogIn);
 
 var router = new VueRouter({
   routes: [
