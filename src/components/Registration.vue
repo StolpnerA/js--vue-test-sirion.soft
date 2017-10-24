@@ -58,12 +58,10 @@ export default {
         })
       }).then((response) => {
         if (response.ok) {
-          console.log(response);
           this.$router.replace('/authorization');
         }
         throw new Error(`Ошибка -- ${response.status} ${response.statusText}`)
       }).catch(error => {
-        console.log(error.message);
         this.errorInfo = `${error.message}`
 
       })

@@ -56,7 +56,6 @@ export default {
       })
         .then(() => this.$router.replace('/cabinet'))
         .catch((error) => {
-          console.log(error.message);
           this.errorInfo = `${error.message}`
         })
     },

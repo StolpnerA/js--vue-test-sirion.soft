@@ -38,7 +38,6 @@ export default {
         }
       }).then((data) => {
         this.arrInsurance = data;
-        console.log(this.arrInsurance);
       }).catch(error => {
         confirm(error);
         this.$router.replace('/authorization');
