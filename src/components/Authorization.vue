@@ -2,9 +2,9 @@
   <singLogIn>
     <form @submit.prevent="validateBeforeSubmit">
       <label for="email">Логин или e-mail</label>
-      <input v-validate="'required|email'" data-vv-delay="250" :class="{'input': true, 'is-danger': errors.has('email') }" id="email" type="text" name="email" v-model="email" placeholder="Введите Ваш логин или e-mail">
+      <input v-validate="'required|email'" data-vv-delay="500" :class="{'input': true, 'is-danger': errors.has('email') }" id="email" type="text" name="email" v-model="email" placeholder="Введите Ваш логин или e-mail">
       <label for="password">Пароль</label>
-      <input v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('password') }" id="password" type="text" name="password" v-model="password" placeholder="Пароль"><br>
+      <input v-validate="'required'" data-vv-delay="500" :class="{'input': true, 'is-danger': errors.has('password') }" id="password" type="text" name="password" v-model="password" placeholder="Пароль"><br>
 
       <button class="btnRegistration">Войти</button>
       <button @click.prevent="moveToRegistration()" class="btnBack">Зарегистрироваться</button>
