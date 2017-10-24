@@ -14,6 +14,7 @@ Vue.component("masked-input", MaskedInput);
 Vue.component("singLogIn", SingLogIn);
 
 var router = new VueRouter({
+  base: "/js--vue-test-sirion.soft/",
   routes: [
     { path: "/authorization", component: Authorization },
     { path: "/registration", component: Registration },
