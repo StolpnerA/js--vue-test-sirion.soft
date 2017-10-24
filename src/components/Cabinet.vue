@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     sendingData: function() {
-      fetch(' http://test-task-api.insirion.ru/user/insurance', {
+      fetch(' https://test-task-api.insirion.ru/user/insurance', {
         method: 'GET',
         headers: {
           'token-sirion': localStorage.getItem('jwt')
