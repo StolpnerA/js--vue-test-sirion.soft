@@ -2,6 +2,9 @@
 
 > A Vue.js project
 
+## GitHub Pages
+https://stolpnera.github.io/js--vue-test-sirion.soft/
+
 ## Build Setup
 
 ``` bash
