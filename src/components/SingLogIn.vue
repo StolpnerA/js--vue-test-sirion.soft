@@ -12,10 +12,10 @@
     </div>
     <div class="rightForm">
       <div class="welcom">
-        Добро пожаловать в Azur.
+        <img class="midScreen" src="../assets/big-logo-singin.png" alt="Azur"> Добро пожаловать в Azur.
       </div>
       <div class="infoRegis">Для доступа в Ваш аккаунт, авторизируйтесь.</div>
-      <img src="../assets/big-logo-singin.png" alt="Azur">
+      <img class="largeScreen" src="../assets/big-logo-singin.png" alt="Azur">
     </div>
   </div>
 </template>

@@ -8,7 +8,7 @@
 
       <button class="btnRegistration">Войти</button>
       <button @click.prevent="moveToRegistration()" class="btnBack">Зарегистрироваться</button>
-      <span class="errorInfo">{{ errors.first('email') || errors.first('password') || errorInfo}}</span>
+      <span class="errorInfo">{{ errors.first('email') || errors.first('password') || errorInfo}} &nbsp;</span>
     </form>
   </singLogIn>
 </template>
@@ -30,8 +30,6 @@ export default {
           this.sendingData();
           return;
         }
-
-        alert('Исправьте ошибки');
       });
     },
     sendingData: function() {

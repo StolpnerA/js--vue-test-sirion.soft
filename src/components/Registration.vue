@@ -15,7 +15,7 @@
 
       <button class="btnRegistration">Регистрация</button>
       <button @click.prevent="moveToAuthorization()" class="btnBack">У меня есть аккаунт</button>
-      <span class="errorInfo">{{errors.first('password') || errors.first('repeatPassword') || errors.first('phone') || errors.first('email') || errorInfo}}</span>
+      <span class="errorInfo">{{errors.first('password') || errors.first('repeatPassword') || errors.first('phone') || errors.first('email') || errorInfo}} &nbsp;</span>
     </form>
   </singLogIn>
 </template>
@@ -41,8 +41,6 @@ export default {
           this.sendingData();
           return;
         }
-
-        alert('Исправьте ошибки');
       });
     },
     sendingData: function() {
