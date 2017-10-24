@@ -137,3 +137,52 @@ form button.btnBack {
 .rightForm img {
   margin-top: 80px;
 }
+
+@media all and (max-width: 890px) {
+  .singLogIn {
+    width: 548px;
+    margin: 50px auto;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .rightForm {
+    width: 100%;
+    height: 140px;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 0;
+    background-image: linear-gradient(
+      325deg,
+      rgb(48, 232, 189),
+      rgb(48, 136, 244)
+    );
+  }
+  .rightForm img {
+    margin-top: 20px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .leftForm {
+    width: 100%;
+  }
+  form {
+    margin: 30px 20px;
+    max-width: 508px;
+    text-align: center;
+  }
+
+  form button.btnRegistration {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .logo {
+    display: none;
+  }
+}
